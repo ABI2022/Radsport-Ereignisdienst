@@ -5,7 +5,29 @@
 
 int main()
 {
-    std::cout << "Hello World!\n";
+        // Programmausschnitte zu 1.1.3:
+    List<Fahrer*> ermittleRennergebnis() {
+        List<Fahrer*> rg;
+        for (int i = teilnehmer.size(); i > 1; i--) {
+            Fahrer* tn = teilnehmer.get(i - 1);
+            if (rg.size == 0)
+                rg.add(tn);
+            else
+                if (rg.size == 1)
+                    if (rg.get(0)->getFahrzeit() > tn->getFahrzeit)
+                        rg.add(tn);
+                    else
+                        rg.add(tn, 1);
+                else
+                    rgSize = rg.size();
+            Time tnTime = tn->getFahrzeit();
+            while (rgSize > 0) {
+                rgSize--;
+                if (rg.get(rgSize)->getFahrzeit < tnTime)
+                    rg.add(tn, rgSize + 1);
+            }
+        }
+    }
 }
 
 // Programm ausführen: STRG+F5 oder Menüeintrag "Debuggen" > "Starten ohne Debuggen starten"
